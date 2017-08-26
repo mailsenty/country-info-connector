@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" url="http://www.mulesoft.org/schema/mule/country-info" prefix="country-info">
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="CountryInfo" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/country-info/abstractCountry-infoConnectorGeneric"></global-cloud-connector>
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="CountryInfo: Configuration" description="Global Configuration configuration information." icon="icons/theme.classic/country-info-connector-small.png" localId="config" image="icons/theme.classic/country-info-connector-large.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/country-info/parentConfig" connectivityTesting="off" metaData="static" metaDataKeyDisplay="DISPLAY_NAME" supportsUserDefinedMetaData="false">
+    <attribute-category caption="General" description="Country-info configuration properties.">
+      <group id="country-infoGenericProperties" caption="Basic Settings">
+        <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
+      </group>
+      <group id="general" caption="General">
+        <string defaultValue="Hello" name="greeting" caption="Greeting" description="Greeting message." supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <string defaultValue="How are you?" name="reply" caption="Reply" description="Reply message." supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector caption="Abstractcountry-infoconnectorgeneric" description="Interact with Country-info." icon="icons/theme.classic/country-info-connector-small.png" localId="abstractCountry-infoConnectorGeneric" image="icons/theme.classic/country-info-connector-large.png" abstract="true">
+    <attribute-category caption="General" description="General.">
+      <group id="abstractCountry-infoConnectorGeneric" caption="Basic Settings">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/country-info/config" name="config-ref" caption="Connector Configuration" description="Specify which configuration to use for this invocation." required="true"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector versions="[3.5.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.country-info" caption="CountryInfo" description="" icon="icons/theme.classic/country-info-connector-small.png" localId="country-info-connector" image="icons/theme.classic/country-info-connector-large.png" extends="http://www.mulesoft.org/schema/mule/country-info/abstractCountry-infoConnectorGeneric">
+    <attribute-category caption="General" description="General.">
+      <group id="country-infoConnectorGeneric" caption="Basic Settings">
+        <modeSwitch alwaysCombo="true" name="Country-info operations to execute" caption="Operation" description="Operation.">
+          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/country-info/abstractCountry-infoConnectorGeneric" versions="[3.5.0,8.0.0]" connector-name="processor"></no-operation>
+          <mode modeId="http://www.mulesoft.org/schema/mule/country-info/find-by-capital" modeLabel="Find by capital"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/country-info/find-by-currency" modeLabel="Find by currency"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/country-info/find-on-lang" modeLabel="Find on lang"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Find By Capital" icon="icons/theme.classic/country-info-connector-small.png" localId="find-by-capital" image="icons/theme.classic/country-info-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/country-info/abstractCountry-infoConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="capital" caption="Capital" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Find By Currency" icon="icons/theme.classic/country-info-connector-small.png" localId="find-by-currency" image="icons/theme.classic/country-info-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/country-info/abstractCountry-infoConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="currency" caption="Currency" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Find On Lang" icon="icons/theme.classic/country-info-connector-small.png" localId="find-on-lang" image="icons/theme.classic/country-info-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/country-info/abstractCountry-infoConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="lang" caption="Lang" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+</namespace>
